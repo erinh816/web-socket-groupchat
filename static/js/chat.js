@@ -30,9 +30,12 @@ ws.onmessage = function (evt) {
 
   if (msg.type === "note") {
     item = $(`<li><i>${msg.text}</i></li>`);
-  } else if (msg.type === "chat") {
+  } else if (msg.type === "chat" && msg.text !== '/joke') {
     item = $(`<li><b>${msg.name}: </b>${msg.text}</li>`);
-  } else {
+  } else if (msg.text === '/joke') {
+    item = $(`<li>this is joke</li>`);
+  }
+  else {
     return console.error(`bad message: ${msg}`);
   }
 
