@@ -67,6 +67,13 @@ class Room {
       member.send(JSON.stringify(data));
     }
   }
+
+  /**
+   * Send a list of all members currently in the room
+   */
+  showAllMembers(member) {
+    member.send(JSON.stringify(this.members));
+  }
 }
 
 module.exports = Room;
